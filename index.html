@@ -10,11 +10,26 @@
             <div id="calculator">
             <form>
                 <p>Bill</p>
-                $ <input id="billamt" type="text">
-                <p>Tip %</p>
-                <input id="tipamt" type ="text">
+                 <input id="billAmt" type="text">
+
+                 <p>Tip %</p>
+                 <div class="quantity buttons_added">
+                    <input type="button" value="-" class="minus"><input 
+                    id="tipAmt" type="number" step="1" min="1" max="" name="quantity"
+                     value="1" title="Qty" class="input-text qty text" size="4"
+                    pattern="" inputmode=""><input type="button" value="+" class="plus">
+                </div>
+            
+
                 <p>Number of People</p>
-                <input id="numppl" type="number">
+                <div class="quantity buttons_added">
+                        <input type="button" value="-" class="minus"><input 
+                        id="tipAmt" type="number" step="1" min="1" max="" name="quantity"
+                         value="1" title="Qty" class="input-text qty text" size="4"
+                        pattern="" inputmode=""><input type="button" value="+" class="plus">
+                    </div>
+             
+
                 <p>Tip(per person)</p>
                 <p>Total(per person)</p>
                 <p>Full amount</p>
