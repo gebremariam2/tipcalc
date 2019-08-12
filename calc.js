@@ -1,19 +1,24 @@
-function calculateTip{
+function calculateTip() {
     //return values from input
-    var billAmt = document.getElementById("billAmt").value;
-    var tipAmt = document.getElementById("tipAmt").value;
-    var numPpl = document.getElementById("numPpl").value;
+    var bill = document.getElementById("billAmt").value;
+    var tip = document.getElementById("tipAmt").value;
+    var num = document.getElementById("numPpl").value;
 
     //calculate tip per person, total per person and full bill amount
-    var tip = billAmt * tipAmt / numPpl;
-    var total = billAmt / numPpl + tip;
-    var fullAmt = billAmt * tipAmt;
+    var tip = bill * tip / num;
+    var total = bill / num + tip;
+    var full = bill * tip;
     
     //display all calculations
-    document.getElementById("tip").innerHTML = tip;
-    document.getElementById("total").innerHTML = total;
-    document.getElementById("fullAmt").innerHTML = fullAmt;
+    document.getElementById("tipPp").innerHTML = tip;
+    document.getElementById("totalPp").innerHTML = total;
+    document.getElementById("fullAmt").style.display = "block";
+    document.getElementById("fullAmount").innerHTML = "Hello";
 
+
+    document.getElementById("calculate").onclick = function() {
+        calculateTip();
+      
 
     
 

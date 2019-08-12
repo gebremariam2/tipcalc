@@ -5,9 +5,10 @@
     </head>
     <body>
         <div id="container">
-            <h2>Tip Calculator</h1>
+            <h2>Tip Calculator</h2>
             <div id="calculator">
             <form>
+                   
                 <p>Bill</p>
                  <input id="billAmt" type="text">
 
@@ -19,24 +20,63 @@
                     pattern="" inputmode=""><input type="button" value="+" class="plus">
                 </div>
             
-
                 <p>Number of People</p>
                 <div class="quantity buttons_added">
                         <input type="button" value="-" class="minus"><input 
-                        id="tipAmt" type="number" step="1" min="1" max="" name="quantity"
+                        id="numPpl" type="number" step="1" min="1" max="" name="quantity"
                          value="1" title="Qty" class="input-text qty text" size="4"
                         pattern="" inputmode=""><input type="button" value="+" class="plus">
                     </div>
-             
 
-                <p>Tip(per person)</p>
-                <p>Total(per person)</p>
-                <p>Full amount</p>
+                <div class="tipPp">
+                <p>Tip</p>
+                </div>
+
+                <div class="pp">
+                <p>per person</p> 
+                </div>
+                <p id="tips"></p>
+
+                <div class="totalPp">
+                <p>Total</p>
+                </div>
+
+                <div class="pp">
+                <p>per person</p> 
+                </div>
+                <p id ="tots"></p>
+
+                <div id="fullAmt">    
+               <p>Full Amount</p>
+               <p id="fullAmount"></p>
+                </div>
 
             </form>
         </div> <!--calculator-->
         </div> <!--#containter-->
-    </body>
 
+
+        <button onclick="calculateTip()">Calculate!</button>
+
+        <script>
+        function calculateTip(){
+         var billAmt = document.getElementById("billAmt").value;
+         var tipAmt = document.getElementById("tipAmt").value;
+        var numPpl = document.getElementById("numPpl").value;
+
+        var total = billAmt / numPpl + tipAmt;
+        var fullAmt = billAmt * tipAmt / numPpl;
+        var tip = billAmt * tipAmt / numPpl;
+
+        document.getElementById("fullAmt").style.display = "block";
+        document.getElementById("fullAmount").innerHTML = fullAmt;
+        document.getElementById("tots").innerHTML= total;
+        document.getElementById("tips").innerHTML= tip;
+
+        }
+
+    </script>
+
+    </body>
 </html>
 
