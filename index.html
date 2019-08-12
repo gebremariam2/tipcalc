@@ -7,8 +7,7 @@
         <div id="container">
             <h2>Tip Calculator</h2>
             <div id="calculator">
-            <form>
-                   
+            <form id="tip-form">
                 <p>Bill</p>
                  <input id="billAmt" type="text">
 
@@ -18,16 +17,17 @@
                     id="tipAmt" type="number" step="1" min="1" max="" name="quantity"
                      value="1" title="Qty" class="input-text qty text" size="4"
                     pattern="" inputmode=""><input type="button" value="+" class="plus">
-                </div>
+                 </div>
             
                 <p>Number of People</p>
-                <div class="quantity buttons_added">
+                 <div class="quantity buttons_added">
                         <input type="button" value="-" class="minus"><input 
                         id="numPpl" type="number" step="1" min="1" max="" name="quantity"
                          value="1" title="Qty" class="input-text qty text" size="4"
                         pattern="" inputmode=""><input type="button" value="+" class="plus">
                     </div>
-
+                </form>
+                
                 <div class="tipPp">
                 <p>Tip</p>
                 </div>
@@ -51,17 +51,17 @@
                <p id="fullAmount"></p>
                 </div>
 
-            </form>
+       
         </div> <!--calculator-->
         </div> <!--#containter-->
 
 
-        <button onclick="calculateTip()">Calculate!</button>
 
-        <script>
-        function calculateTip(){
-         var billAmt = document.getElementById("billAmt").value;
-         var tipAmt = document.getElementById("tipAmt").value;
+    <script>
+       document.querySelector('#tip-form').onchange = function calculateTip(){
+
+        var billAmt = document.getElementById("billAmt").value;
+        var tipAmt = document.getElementById("tipAmt").value;
         var numPpl = document.getElementById("numPpl").value;
 
         var tip = (billAmt * tipAmt / 100) / numPpl;
@@ -79,6 +79,18 @@
         document.getElementById("tips").innerHTML= tip;
 
         }
+        $(document).ready(function(){
+		    $('.input-text qty text" ').prop('disabled', true);
+   			$(document).on('click','.plus',function(){
+				$('.input-text qty text" ').val(parseInt($('.input-text qty text" ').val()) + 1 );
+    		});
+        	$(document).on('click','.minus',function(){
+    			$('.input-text qty text" ').val(parseInt($('.input-text qty text" ').val()) - 1 );
+    				if ($('.input-text qty text" ').val() == 0) {
+						$('.input-text qty text" ').val(1);
+					}
+    	    	});
+ 		});
 
     </script>
 
